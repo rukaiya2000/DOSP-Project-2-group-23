@@ -3,7 +3,7 @@
 **Course**: CS 555 - Distributed Systems  
 **Project**: Gossip Algorithm Simulator  
 **Team Members**: Rukaiya Khan 
-**Date**: December 2024
+**Date**: September 2025
 
 ## Abstract
 
@@ -242,16 +242,14 @@ The actor model proved to be an excellent choice for this simulation, providing:
 This work provides a solid foundation for further research into distributed algorithm performance and network topology optimization, demonstrating that functional programming languages like Gleam can handle large-scale distributed system simulations effectively.
 
 ## References
-
-1. Demers, A., et al. "Epidemic algorithms for replicated database maintenance." ACM PODC, 1987.
-2. Kempe, D., et al. "Gossip-based computation of aggregate information." FOCS, 2003.
-3. Gleam Documentation. https://gleam.run/
-4. Erlang/OTP Documentation. https://www.erlang.org/doc/
-5. Actor Model Theory. https://en.wikipedia.org/wiki/Actor_model
+1. Kempe, D., et al. "Gossip-based computation of aggregate information." FOCS, 2003.
+2. Gleam Documentation. https://gleam.run/
+3. Erlang/OTP Documentation. https://www.erlang.org/doc/
+4. Actor Model Theory. https://en.wikipedia.org/wiki/Actor_model
 
 ---
 
 **Team Members**: Rukaiya Khan 
 **Course**: CS 555 - Distributed Systems  
 **Institution**: University of Florida
-**Date**: December 2024
+**Date**: September 2025
