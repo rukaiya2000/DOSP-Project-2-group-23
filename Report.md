@@ -1,8 +1,8 @@
 # Gossip Algorithm Simulation Report
 
-**Course**: COP5615  - Distributed Systems  
-**Project**: Gossip Algorithm Simulator  
-**Team Members**: Rukaiya Khan & Vatsal Shah
+**Primary Developers** - Rukaiya Khan & Vatsal Shah
+**Course**: COP 5615 - Distributed Operating Systems Principles  
+**Project**: Gossip Algorithm Simulator
 **Date**: September 2025
 
 ## Abstract
@@ -252,6 +252,6 @@ This work provides a solid foundation for further research into distributed algo
 ---
 
 **Team Members**: Rukaiya Khan & Vatsal Shah
-**Course**: COP5615 - Distributed Systems  
+**Course**: COP 5615 - Distributed Operating Systems Principles
 **Institution**: University of Florida
 **Date**: September 2025

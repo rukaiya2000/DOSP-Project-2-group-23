@@ -19,7 +19,7 @@ A distributed systems simulation implementing Gossip and Push-Sum algorithms usi
 ## 👥 Team Members
 
 - **Primary Developers** - Rukaiya Khan & Vatsal Shah
-- **Course**: CS 555 - Distributed Systems
+- **Course**: COP 5615 - Distributed Operating Systems Principles
 - **Institution**: University of Florida
 
 ## 🎯 Project Overview
@@ -302,10 +302,7 @@ src/
 ├── working_actor_simulation.gleam  # Core actor-based simulation engine
 ├── types.gleam                     # Type definitions and data structures
 ├── topology.gleam                  # Network topology generation
-├── args.gleam                      # Command-line argument parsing
-├── algorithms.gleam                # Legacy algorithm implementations
-├── simulation.gleam                # Legacy simulation framework
-└── otp_simulation.gleam            # OTP integration examples
+└── args.gleam                      # Command-line argument parsing
 
 test/
 └── gleam_gossip_test.gleam         # Test cases
@@ -315,8 +312,7 @@ docs/
 └── Report.md                       # Academic analysis and results
 
 Configuration:
-├── gleam.toml                      # Project configuration and dependencies
-└── .github/workflows/test.yml      # CI/CD pipeline
+└── gleam.toml                      # Project configuration and dependencies
 ```
 
 ### Key Files Explained
@@ -414,13 +410,7 @@ gleeunit = ">= 1.0.0 and < 2.0.0"  # Testing framework
 
 ## 📄 License
 
-This project is part of a CS 555 Distributed Systems course assignment.
-
-## 📞 Contact
-
-- **Developer**: Rukaiya Khan
-- **Course**: CS 555 - Distributed Systems
-- **Institution**: University of Florida
+This project is part of a COP 5615 Distributed Operating Systems Principle course assignment.
 
 ---
 
