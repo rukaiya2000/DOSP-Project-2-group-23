@@ -32,7 +32,7 @@ pub type FailureModel {
 
 /// Message types for actor communication (legacy - used in older implementations)
 pub type Message {
-  GossipMessage(rumor: String, count: Int)
+  GossipMessage(rumor: String)
   // Propagate gossip message with count
   PushSumMessage(s: Int, w: Int)
   // Send push-sum values (sum and weight)

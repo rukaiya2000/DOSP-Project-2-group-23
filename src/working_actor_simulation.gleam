@@ -61,7 +61,7 @@ pub type ActorMessage {
   /// Initialize gossip protocol with a rumor message
   StartGossip(String)
   /// Propagate gossip message with rumor and count
-  GossipMessage(String, Int)
+  GossipMessage(String)
   /// Initialize push-sum protocol
   StartPushSum
   /// Send push-sum values (sum and weight) to neighbor
@@ -110,7 +110,7 @@ pub fn process_message(actor: NodeActor, message: ActorMessage) -> NodeActor {
         failed_connections: actor.failed_connections,
       )
     }
-    GossipMessage(_rumor, count) -> {
+    GossipMessage(_rumor) -> {
       // Update gossip message count and check termination condition
       let new_count = actor.gossip_message_count + 1
       let should_terminate = new_count >= 10
@@ -295,7 +295,7 @@ fn accumulate_gossip_sends(
             pick_random_neighbor(actor.neighbor_ids, sd)
           case maybe_neighbor {
             Some(nid) -> #(
-              list.append([#(nid, GossipMessage("rumor", 1))], msgs),
+              list.append([#(nid, GossipMessage("rumor"))], msgs),
               sd2,
             )
             None -> #(msgs, sd2)
@@ -511,7 +511,7 @@ pub fn run_gossip_simulation(
   // Messages are addressed as pairs of (destination_node_id, message)
   // Seed the system by sending one gossip message to node 0 (if exists)
   let initial_messages = case num_nodes > 0 {
-    True -> [#(0, GossipMessage("rumor", 1))]
+    True -> [#(0, GossipMessage("rumor"))]
     False -> []
   }
 
