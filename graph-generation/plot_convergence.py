@@ -16,7 +16,7 @@ plt.rcParams['font.size'] = 12
 
 def load_data():
     """Load the convergence data from CSV file."""
-    return pd.read_csv('convergence_data.csv')
+    return pd.read_csv('graph-generation/data-set/convergence_data.csv')
 
 def create_plots(df):
     """Create convergence plots for all algorithms and topologies."""
@@ -93,8 +93,8 @@ def create_plots(df):
         ax.set_ylim(0.8, 100000)
     
     plt.tight_layout()
-    plt.savefig('convergence_analysis.png', dpi=300, bbox_inches='tight')
-    print("Plot saved as 'convergence_analysis.png'")
+    plt.savefig('graph-generation/convergence_analysis.png', dpi=300, bbox_inches='tight')
+    print("Plot saved as 'graph-generation/convergence_analysis.png'")
     
     # Create a summary plot comparing algorithms across all topologies
     create_summary_plot(df)
@@ -224,7 +224,7 @@ def main():
     print_statistics(df)
     
     print("\n=== PLOTS GENERATED ===")
-    print("1. convergence_analysis.png - Detailed analysis by topology")
+    print("1. graph-generation/convergence_analysis.png - Detailed analysis by topology")
     print("2. convergence_summary.png - Summary comparison by algorithm")
     print("\nBoth plots saved in the project root directory.")
 

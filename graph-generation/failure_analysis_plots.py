@@ -15,7 +15,7 @@ plt.style.use('seaborn-v0_8')
 sns.set_palette("husl")
 
 # Read the data
-df = pd.read_csv('failure_experiments_data.csv')
+df = pd.read_csv('graph-generation/data-set/failure_experiments_data.csv')
 
 # Create figure with subplots
 fig = plt.figure(figsize=(16, 12))
@@ -132,7 +132,7 @@ plt.legend()
 plt.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('failure_analysis_plots.png', dpi=300, bbox_inches='tight')
+plt.savefig('graph-generation/failure_analysis_plots.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # Create a separate detailed plot for Push-Sum connection failures
@@ -155,7 +155,7 @@ plt.xticks(fontsize=12)
 plt.yticks(fontsize=12)
 
 plt.tight_layout()
-plt.savefig('pushsum_connection_failure_analysis.png', dpi=300, bbox_inches='tight')
+plt.savefig('graph-generation/pushsum_connection_failure_analysis.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # Print summary statistics

@@ -136,6 +136,9 @@ gleam run -- 100 full gossip
 gleam run -- 50 line push-sum
 gleam run -- 64 3d gossip
 gleam run -- 125 imp3d push-sum
+
+#to generate the graph
+python3 graph-generation/convergence_analysis.png
 ```
 
 #### Advanced Usage (With Failure Models)
@@ -208,7 +211,7 @@ gleam run -- 10 full gossip node 0.1 >> results.txt
 gleam run -- 10 full gossip node 0.15 >> results.txt
 
 # Generate plots from experimental data
-python3 failure_analysis_plots.py
+python3 graph-generation/failure_analysis_plots.py
 ```
 
 ### Performance Tips
@@ -308,17 +311,15 @@ test/
 └── gleam_gossip_test.gleam         # Test cases
 
 docs/
-├── README.md                       # This documentation
-├── Report-bonus.md                 # Analysis for bonus part (Failure model)
-├── report-graph.md                 # Results of failure model implementation
-└── Report.md                       # Academic analysis and results
+├── Report-bonus.pdf                 # Analysis for bonus part (Failure model)
+└── Report.pdf                       # Academic analysis and results
 
 images/                             # Graphical representation of various analysis done for failure model
 ├── convergence_analysis.png
 ├── failure_analysis_plots.png
 └── pushsum_connection_failure_analysis.png
 
-graphical analysis 
+graph-generation/ 
 ├── collect_data.sh                 # Script to collect convergence data
 ├── convergence_data.csv            # Convergence data collected 
 ├── failure_analysis_plots.py       # Code to generate plots for impact of failure model
@@ -328,6 +329,8 @@ graphical analysis
 Configuration:
 └── gleam.toml                      # Project configuration and dependencies
 ```
+docs
+├── README.md                       # Documentation for whole file
 
 ### Key Files Explained
 
