@@ -2,7 +2,7 @@
 
 **Course**: CS 555 - Distributed Systems  
 **Project**: Gossip Algorithm Simulator  
-**Team Members**: Rukaiya Khan 
+**Team Members**: Rukaiya Khan & Vatsal Shah
 **Date**: September 2025
 
 ## Abstract
@@ -251,7 +251,7 @@ This work provides a solid foundation for further research into distributed algo
 
 ---
 
-**Team Members**: Rukaiya Khan 
+**Team Members**: Rukaiya Khan & Vatsal Shah
 **Course**: CS 555 - Distributed Systems  
 **Institution**: University of Florida
 **Date**: September 2025

@@ -18,7 +18,7 @@ A distributed systems simulation implementing Gossip and Push-Sum algorithms usi
 
 ## 👥 Team Members
 
-- **Rukaiya Khan** - Primary Developer
+- **Primary Developers** - Rukaiya Khan & Vatsal Shah
 - **Course**: CS 555 - Distributed Systems
 - **Institution**: University of Florida
 
