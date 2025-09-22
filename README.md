@@ -309,7 +309,21 @@ test/
 
 docs/
 ├── README.md                       # This documentation
+├── Report-bonus.md                 # Analysis for bonus part (Failure model)
+├── report-graph.md                 # Results of failure model implementation
 └── Report.md                       # Academic analysis and results
+
+images/                             # Graphical representation of various analysis done for failure model
+├── convergence_analysis.png
+├── failure_analysis_plots.png
+└── pushsum_connection_failure_analysis.png
+
+graphical analysis 
+├── collect_data.sh                 # Script to collect convergence data
+├── convergence_data.csv            # Convergence data collected 
+├── failure_analysis_plots.py       # Code to generate plots for impact of failure model
+├── plot_convergence.py             # Code to generate convergence plots for gossip and push-sum algorithm
+└── failure_experiments_data.csv    # Failure experiments data
 
 Configuration:
 └── gleam.toml                      # Project configuration and dependencies
