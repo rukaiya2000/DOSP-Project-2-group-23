@@ -102,6 +102,7 @@ pub type NodeActor {
 
 - [Gleam](https://gleam.run/getting-started/installing/) installed
 - Erlang/OTP runtime
+- Python 3 with matplotlib and pandas (for plotting experimental data)
 
 ### Building the Project
 
@@ -115,12 +116,19 @@ gleam deps download
 
 # Build the project
 gleam build
+
+# Install Python dependencies for plotting (optional)
+pip3 install seaborn matplotlib pandas --break-system-packages
 ```
 
 ### Running Simulations
 
+The simulator supports both basic and advanced usage with optional failure models.
+
+#### Basic Usage (No Failures)
+
 ```bash
-# Basic usage
+# Basic usage without failure models
 gleam run -- <numNodes> <topology> <algorithm>
 
 # Examples
@@ -130,13 +138,86 @@ gleam run -- 64 3d gossip
 gleam run -- 125 imp3d push-sum
 ```
 
+#### Advanced Usage (With Failure Models)
+
+```bash
+# Full usage with failure models
+gleam run -- <numNodes> <topology> <algorithm> <failureModel> <failureRate>
+
+# Examples with node failures
+gleam run -- 10 full gossip node 0.1      # 10% node failure rate
+gleam run -- 20 3d push-sum node 0.05     # 5% node failure rate
+
+# Examples with connection failures
+gleam run -- 15 full gossip connection 0.2  # 20% connection failure rate
+gleam run -- 25 line push-sum connection 0.15 # 15% connection failure rate
+
+# Baseline with no failures
+gleam run -- 10 full gossip none 0.0      # Explicit no failures
+```
+
 ### Command Line Arguments
 
-| Argument | Values | Description |
-|----------|--------|-------------|
-| `numNodes` | Positive integer | Number of nodes in the network |
-| `topology` | `full`, `3d`, `line`, `imp3d` | Network topology type |
-| `algorithm` | `gossip`, `push-sum` | Algorithm to simulate |
+| Argument | Required | Values | Description |
+|----------|----------|--------|-------------|
+| `numNodes` | ✅ Yes | Positive integer | Number of nodes in the network |
+| `topology` | ✅ Yes | `full`, `3d`, `line`, `imp3d` | Network topology type |
+| `algorithm` | ✅ Yes | `gossip`, `push-sum` | Algorithm to simulate |
+| `failureModel` | ❌ Optional | `node`, `connection`, `none` | Failure model to apply |
+| `failureRate` | ❌ Optional | 0.0 to 1.0 | Failure rate (e.g., 0.1 for 10%) |
+
+### Failure Models
+
+The simulator implements two types of failure models to study algorithm behavior under adverse conditions:
+
+#### 1. Node Failure Model (`node`)
+- **Description**: Randomly marks nodes as failed at initialization
+- **Behavior**: Failed nodes cannot participate in message passing
+- **Parameter**: Failure rate (0.0 to 1.0) - probability of each node failing
+- **Use Case**: Simulating node crashes, hardware failures, or network partitions
+
+#### 2. Connection Failure Model (`connection`)
+- **Description**: Randomly removes connections between nodes
+- **Behavior**: Failed connections are removed from neighbor lists
+- **Parameter**: Failure rate (0.0 to 1.0) - probability of each connection failing
+- **Use Case**: Simulating network link failures, congestion, or routing issues
+
+#### 3. No Failure Model (`none`)
+- **Description**: Baseline simulation without any failures
+- **Behavior**: All nodes and connections are fully functional
+- **Parameter**: Failure rate is ignored (typically 0.0)
+- **Use Case**: Establishing baseline performance metrics
+
+### Fallback Behavior
+
+If failure parameters are not provided, the simulator automatically:
+1. Uses `NoFailure` as the default failure model
+2. Sets failure rate to `0.0`
+3. Runs a baseline simulation
+
+This ensures backward compatibility and allows easy comparison between failure and non-failure scenarios.
+
+### Experimental Data Collection
+
+The simulator outputs convergence time in milliseconds, which can be used for analysis:
+
+```bash
+# Run experiments and collect data
+gleam run -- 10 full gossip node 0.05 > results.txt
+gleam run -- 10 full gossip node 0.1 >> results.txt
+gleam run -- 10 full gossip node 0.15 >> results.txt
+
+# Generate plots from experimental data
+python3 failure_analysis_plots.py
+```
+
+### Performance Tips
+
+- **Small Networks (10-50 nodes)**: Use for quick testing and debugging
+- **Medium Networks (100-500 nodes)**: Good for performance analysis
+- **Large Networks (1000+ nodes)**: May require increased timeout values
+- **Failure Experiments**: Start with low failure rates (0.05-0.2) and gradually increase
+- **Reproducible Results**: The simulator uses deterministic seeding for consistent results
 
 ## 🌐 Network Topologies
 

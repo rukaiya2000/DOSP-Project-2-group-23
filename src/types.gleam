@@ -20,6 +20,16 @@ pub type Algorithm {
   // Distributed sum computation with weight propagation
 }
 
+/// Failure models for simulating node and connection failures
+pub type FailureModel {
+  NodeFailure(failure_rate: Float)
+  // Nodes can fail with given probability
+  ConnectionFailure(failure_rate: Float, recovery_rate: Float)
+  // Connections can fail temporarily and recover
+  NoFailure
+  // No failures (baseline)
+}
+
 /// Message types for actor communication (legacy - used in older implementations)
 pub type Message {
   GossipMessage(rumor: String, count: Int)
@@ -43,6 +53,10 @@ pub type Arguments {
     // Network topology type
     algorithm: Algorithm,
     // Algorithm to simulate
+    failure_model: FailureModel,
+    // Failure model to simulate
+    failure_rate: Float,
+    // Failure rate parameter
   )
 }
 
